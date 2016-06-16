@@ -32,7 +32,7 @@ toggle-quotes() {
     local quote=${1:-"'"}
     local word=$(awk -F'[ ]' '{print $NF}' <<< "$LBUFFER")
 
-    if [ $LBUFFER[$#LBUFFER] = "$quote" ]; then
+    if [ "$LBUFFER[$#LBUFFER]" = "$quote" ]; then
         _remove_quotes "$word" "$quote"
     else
         _add_quotes "$word" "$quote"
